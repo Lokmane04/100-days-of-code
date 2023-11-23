@@ -1,0 +1,5 @@
+total_bill = float(input('what was the total bill : '))
+people = int(input(' \nhow many people are going to pay : '))
+pourcentage = int(input('\nWhat pourcentage tip are you willing to give ? 10, 12 or 15 ? : '))
+bill = ((total_bill) * (1+ (pourcentage)/100))/(people)
+print('\nEach person should pay : $'+ str(round(bill,1)))
