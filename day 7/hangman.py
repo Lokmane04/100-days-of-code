@@ -1,3 +1,4 @@
+
 # import random
 # def Print_output(output):
 #  print(' '.join(output))
@@ -62,70 +63,13 @@
 
 # second solution
 import random
+from hangman_words import word_list,stages,hangman_logo
+print(hangman_logo)
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-words_list = ["Example", "Library", "Science", "History", "Natural", "Culture", "Society", "Economy", "Industry", "Politics", "Language", "Education", "Research", "Software", "Hardware", "Internet", "Database", "Network", "Security", "Strategy"]
 end_of_game = False
 
-chosen_word = random.choice(words_list).lower()
+chosen_word = random.choice(word_list).lower()
 chosen_word_length = len(chosen_word)
-print(chosen_word)
 
 lives = 6
 display = []
@@ -133,8 +77,8 @@ for _ in range(chosen_word_length):
    display+= '_'
 
 while not end_of_game:
-   guess = input('Guess a letter :').lower()
-   for index in range(chosen_word_length):
+    guess = input('Guess a letter :').lower()
+    for index in range(chosen_word_length):
       letter = chosen_word[index]
       
       
@@ -143,16 +87,16 @@ while not end_of_game:
           print(' '.join(display))
       
       
-      if '_' not in display : 
-          print('You won !! 🥳 🥳 ')   
 
 
 
-   if guess not in chosen_word:
+    if guess not in chosen_word:
       lives-=1
       print(stages[lives])
       if lives == 0:
         print('You Lost !! 🥲 🥲')
         end_of_game = True
 
+    if '_' not in display : 
+      print('You won !! 🥳 🥳 ')   
     
