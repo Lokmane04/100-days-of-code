@@ -64,7 +64,11 @@
 # second solution
 import random
 from hangman_words import word_list,stages,hangman_logo
+import os
 print(hangman_logo)
+
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 end_of_game = False
 
@@ -76,8 +80,12 @@ display = []
 for _ in range(chosen_word_length):
    display+= '_'
 
+
+
+
 while not end_of_game:
     guess = input('Guess a letter :').lower()
+    clear_terminal()
     if guess in display:
       print(f"you've already guessed {guess}, try again . ")
     for index in range(chosen_word_length):
@@ -88,9 +96,6 @@ while not end_of_game:
           print(' '.join(display))
       
       
-
-
-
     if guess not in chosen_word:
       lives-=1
       print(stages[lives])
@@ -98,6 +103,7 @@ while not end_of_game:
       if lives == 0:
         print('You Lost !! 🥲 🥲')
         end_of_game = True
+
 
     if '_' not in display : 
       print('You won !! 🥳 🥳 ')   
