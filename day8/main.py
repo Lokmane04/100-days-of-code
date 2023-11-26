@@ -4,7 +4,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 def encrypt(word,shift):
   new_word =''
   for letter in word: 
-        new_word+= alphabet[int(alphabet.index(letter)%len(alphabet))+int(shift)]
+        new_word+= alphabet[int(alphabet.index(letter)%len(alphabet))+shift]
   return new_word
 
 
@@ -22,4 +22,18 @@ def encrypt(word,shift):
 
 # TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 # print(encrypt_decrypt('hello',5))
-print(encrypt(input('type in a word :'),input('type in the shift number : ')))
+
+def hashe(direction,text,shift):
+    if direction == 'encode' :
+      return encrypt(text,shift)
+    elif direction == 'decode' :
+      return encrypt(text,-shift)
+    else:
+       return "please type in 'encode'or 'decode'"
+  
+
+direction = input("type encode or decode :\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number :\n"))
+
+print(hashe(direction,text,shift))
