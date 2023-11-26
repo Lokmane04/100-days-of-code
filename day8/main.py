@@ -31,9 +31,10 @@ def hashe(direction,text,shift):
     else:
        return "please type in 'encode'or 'decode'"
   
+  
 
-direction = input("type encode or decode :\n")
+direction = input("Type 'encode' or 1 to encrypt, type 'decode' or 2 to decrypt:\n")
 text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number :\n"))
+shift = int(input("Type the shift number (must be positif in both cases):\n"))
 
 print(hashe(direction,text,shift))
