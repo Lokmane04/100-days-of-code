@@ -24,9 +24,9 @@ def encrypt(word,shift):
 # print(encrypt_decrypt('hello',5))
 
 def hashe(direction,text,shift):
-    if direction == 'encode' :
+    if direction == 'encode' or direction=='1':
       return encrypt(text,shift)
-    elif direction == 'decode' :
+    elif direction == 'decode' or direction == '2':
       return encrypt(text,-shift)
     else:
        return "please type in 'encode'or 'decode'"
