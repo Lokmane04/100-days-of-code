@@ -62,13 +62,16 @@
 
 
 # second solution
+
 import random
 from hangman_words import word_list,stages,hangman_logo
 import os
-print(hangman_logo)
-
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+clear_terminal()
+print(hangman_logo)
+
 
 end_of_game = False
 
@@ -82,6 +85,7 @@ for _ in range(chosen_word_length):
 
 
 
+print(chosen_word)
 
 while not end_of_game:
     guess = input('Guess a letter :').lower()
@@ -93,7 +97,7 @@ while not end_of_game:
       
       if guess == letter :
           display[index] = letter
-          print(' '.join(display))
+    print(' '.join(display))
       
       
     if guess not in chosen_word:
@@ -107,5 +111,6 @@ while not end_of_game:
 
     if '_' not in display : 
       print('You won !! 🥳 🥳 ')   
+      break
     
       
