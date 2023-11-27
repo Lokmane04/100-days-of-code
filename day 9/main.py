@@ -1,3 +1,5 @@
+import os
+from ascii_art import logo
 
 def max_bid(secret_auction):
   max_bid = 0
@@ -14,7 +16,7 @@ def max_bid(secret_auction):
 
 secret_auction= {}
 
-
+print(logo)
 name =input('What is your name ? :')
 bid = int(input("What's your bid ? : "))
 
@@ -23,6 +25,9 @@ secret_auction[name] = bid
 
 confirm=True
 while confirm==True:
+  def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
   other_bidders = input('want to continue ? : ')
   if other_bidders == 'yes':
     name =input('What is your name ? :')
@@ -37,4 +42,4 @@ while confirm==True:
 
 
 max = max_bid(secret_auction)
-print(f'the highest is : ${max[0]} for "{max[1]}"')
+print(f'the winner is {max[1]} with a bid of ${max[0]}. ')
