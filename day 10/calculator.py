@@ -6,23 +6,23 @@ def clear_terminal():
 
 def calculator(number):
   operation = input("\n- \n+ \n/ \n*\nPick an operation : ")
-  number2 = input("What's the second number ? : ")
+  number2 = float(input("What's the second number ? : "))
   result = int(number)
   if operation == '+':
-    result = result + int(number2)
+    result = result + float(number2)
   elif operation == '-':
-    result = result - int(number2)
+    result = result - float(number2)
   elif operation == '*':
-    result = result * int(number2)
+    result = result * float(number2)
   elif operation == '/':
-    result = result / int(number2)
+    result = result / float(number2)
   else :
     print('Please type a valid operation .')
   print(f"The result is {result} ")
   return result
 
 print(logo)
-number1 = input("What's the first number ? : ")
+number1 = (float)
 result =calculator(number1)
 
 confirm = True
@@ -33,7 +33,7 @@ while confirm == True:
     result = calculator(result)    
   elif continue_operation == 'n':
     clear_terminal()
-    number = input("What's the first number ? : ")
+    number = float(input("What's the first number ? : "))
     result =calculator(number)
   elif continue_operation =='q':
     print("Thank you for using our calculator .")
