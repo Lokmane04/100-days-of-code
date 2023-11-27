@@ -1,3 +1,9 @@
+from ascii_art import logo
+import os
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def calculator(number):
   operation = input("\n- \n+ \n/ \n*\nPick an operation : ")
   number2 = input("What's the second number ? : ")
@@ -15,7 +21,7 @@ def calculator(number):
   print(f"The result is {result} ")
   return result
 
-
+print(logo)
 number1 = input("What's the first number ? : ")
 result =calculator(number1)
 
@@ -23,8 +29,10 @@ confirm = True
 while confirm == True:
   continue_operation = input(f"Type 'y' to continue calculating on {result} , type 'n' to start new calculation, 'q' to quit: ")
   if continue_operation == 'y':
+    clear_terminal()
     result = calculator(result)    
   elif continue_operation == 'n':
+    clear_terminal()
     number = input("What's the first number ? : ")
     result =calculator(number)
   elif continue_operation =='q':
