@@ -29,3 +29,8 @@ while confirm==True:
   else:
     print('please type yes or no')
     confirm = False
+
+
+
+max = max_bid(secret_auction)
+print(f'the highest is : {max[0]} for "{max[1]}"')
