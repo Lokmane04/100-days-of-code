@@ -1,5 +1,5 @@
 def calculator(number):
-  operation = input("Pick an operation : \n- \n+ \n/ \n*\n")
+  operation = input("\n- \n+ \n/ \n*\nPick an operation : ")
   number2 = input("What's the second number ? : ")
   result = int(number)
   if operation == '+':
@@ -26,6 +26,11 @@ while confirm == True:
     result = calculator(result)    
   elif continue_operation == 'n':
     number = input("What's the first number ? : ")
-    calculator(number)
+    result =calculator(number)
   elif continue_operation =='q':
-    break
+    print("Thank you for using our calculator .")
+    confirm =False
+  else:
+    print("Please type 'n' or 'y' or 'q' .")
+    print("Thank you for using our calculator .")
+    confirm = False
