@@ -21,10 +21,11 @@ result =calculator(number1)
 
 confirm = True
 while confirm == True:
-  continue_operation = input(f"Type 'y' to continue calculating on {result} , type 'n' to start new calculation ")
+  continue_operation = input(f"Type 'y' to continue calculating on {result} , type 'n' to start new calculation, 'q' to quit: ")
   if continue_operation == 'y':
     result = calculator(result)    
   elif continue_operation == 'n':
     number = input("What's the first number ? : ")
     calculator(number)
-  
+  elif continue_operation =='q':
+    break
