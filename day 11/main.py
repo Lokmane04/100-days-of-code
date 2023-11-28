@@ -4,7 +4,7 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 import random
-
+from ascii_art import logo
 
 def deal_card():
   cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -40,8 +40,8 @@ def compare(user_score, computer_score):
   else:
     return "You lose 😤"
 
+print(logo)
 def main():
-
 
 
   user_cards = []
