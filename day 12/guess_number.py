@@ -1,6 +1,7 @@
 import random
 from ascii_art import welcomig_logo
 #print the welcome message
+print(welcomig_logo)
 print('Welcome to the Number Guessing Game .')
 print("I'm thinking of a number between 1 and 100 .")
 
