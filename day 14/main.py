@@ -1,4 +1,5 @@
 from data import data
+import random
 from art import logo,vs
 import os
 def clear_terminal():
@@ -39,9 +40,12 @@ def compare_followers(first_person,second_person):
 
 def game():
   global SCORE,END_OF_GAME
+
   while SCORE in range(len(data) - 1) and END_OF_GAME == False:
-    first_person = data[SCORE]
-    second_person = data[SCORE + 1]
+    index = random.randint(0,len(data)-1)
+    first_person = data[index]
+    index = random.randint(0,len(data)-1)
+    second_person = data[index + 1]
     print("compare these two :")
 
     print(f"A: {first_person['name']},a {first_person['description']},from {first_person['followers']},")
