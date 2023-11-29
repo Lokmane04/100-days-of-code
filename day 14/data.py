@@ -1,193 +1,193 @@
 data = [
     {
         'name': 'Instagram',
-        'follower_count': 346,
+        'followers': 346,
         'description': 'Social media platform',
         'country': 'United States'
     },
     {
         'name': 'Cristiano Ronaldo',
-        'follower_count': 215,
+        'followers': 500,
         'description': 'Footballer',
         'country': 'Portugal'
     },
     {
         'name': 'Dwayne Johnson',
-        'follower_count': 181,
+        'followers': 181,
         'description': 'Actor and professional wrestler',
         'country': 'United States'
     },
     {
         'name': 'Lionel Messi',
-        'follower_count': 149,
+        'followers': 210,
         'description': 'Footballer',
         'country': 'Argentina'
     },
     {
         'name': 'Neymar',
-        'follower_count': 138,
+        'followers': 188,
         'description': 'Footballer',
         'country': 'Brasil'
     },
     {
         'name': 'National Geographic',
-        'follower_count': 135,
+        'followers': 205,
         'description': 'Magazine',
         'country': 'United States'
     },
     {
         'name': 'Justin Bieber',
-        'follower_count': 133,
+        'followers': 133,
         'description': 'Musician',
         'country': 'Canada'
     },
     {
         'name': 'Nike',
-        'follower_count': 109,
+        'followers': 109,
         'description': 'Sportswear multinational',
         'country': 'United States'
     },
     {
         'name': 'Miley Cyrus',
-        'follower_count': 107,
+        'followers': 107,
         'description': 'Musician and actress',
         'country': 'United States'
     },
     {
         'name': 'Kevin Hart',
-        'follower_count': 89,
+        'followers': 89,
         'description': 'Comedian and actor',
         'country': 'United States'
     },
     {
         'name': 'Ellen DeGeneres',
-        'follower_count': 87,
+        'followers': 87,
         'description': 'Comedian',
         'country': 'United States'
     },
     {
         'name': 'Real Madrid CF',
-        'follower_count': 86,
+        'followers': 86,
         'description': 'Football club',
         'country': 'Spain'
     },
     {
         'name': 'FC Barcelona',
-        'follower_count': 85,
+        'followers': 95,
         'description': 'Football club',
         'country': 'Spain'
     },
     {
         'name': 'Demi Lovato',
-        'follower_count': 80,
+        'followers': 75,
         'description': 'Musician and actress',
         'country': 'United States'
     },
     {
         'name': "Victoria's Secret",
-        'follower_count': 69,
+        'followers': 69,
         'description': 'Lingerie brand',
         'country': 'United States'
     },
     {
         'name': 'Drake',
-        'follower_count': 65,
+        'followers': 65,
         'description': 'Musician',
         'country': 'Canada'
     },
     {
         'name': 'Chris Brown',
-        'follower_count': 64,
+        'followers': 64,
         'description': 'Musician',
         'country': 'United States'
     },
     {
         'name': 'LeBron James',
-        'follower_count': 63,
+        'followers': 63,
         'description': 'Basketball player',
         'country': 'United States'
     },
     {
         'name': 'Vin Diesel',
-        'follower_count': 62,
+        'followers': 62,
         'description': 'Actor',
         'country': 'United States'
     },
     {
         'name': 'David Beckham',
-        'follower_count': 82,
+        'followers': 82,
         'description': 'Footballer',
         'country': 'United Kingdom'
     },
     {
         'name': 'Justin Timberlake',
-        'follower_count': 59,
+        'followers': 59,
         'description': 'Musician and actor',
         'country': 'United States'
     },
     {
         'name': 'UEFA Champions League',
-        'follower_count': 58,
+        'followers': 58,
         'description': 'Club football competition',
         'country': 'Europe'
     },
     {
         'name': 'NASA',
-        'follower_count': 56,
+        'followers': 56,
         'description': 'Space agency',
         'country': 'United States'
     },
     {
         'name': 'Emma Watson',
-        'follower_count': 56,
+        'followers': 56,
         'description': 'Actress',
         'country': 'United Kingdom'
     },
     {
         'name': 'Shawn Mendes',
-        'follower_count': 57,
+        'followers': 57,
         'description': 'Musician',
         'country': 'Canada'
     },
     {
         'name': 'Virat Kohli',
-        'follower_count': 55,
+        'followers': 55,
         'description': 'Cricketer',
         'country': 'India'
     },
     {
         'name': 'Gigi Hadid',
-        'follower_count': 54,
+        'followers': 54,
         'description': 'Model',
         'country': 'United States'
     },
     {
         'name': 'Priyanka Chopra Jonas',
-        'follower_count': 53,
+        'followers': 53,
         'description': 'Actress and musician',
         'country': 'India'
     },
     {
         'name': '9GAG',
-        'follower_count': 52,
+        'followers': 52,
         'description': 'Social media platform',
         'country': 'China'
     },
     {
         'name': 'Ronaldinho',
-        'follower_count': 51,
+        'followers': 51,
         'description': 'Footballer',
         'country': 'Brasil'
     },
     {
         'name': 'Maluma',
-        'follower_count': 50,
+        'followers': 50,
         'description': 'Musician',
         'country': 'Colombia'
     },
     {
         'name': 'NBA',
-        'follower_count': 47,
+        'followers': 47,
         'description': 'Club Basketball Competition',
         'country': 'United States'
     }
