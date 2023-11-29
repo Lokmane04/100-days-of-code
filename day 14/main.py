@@ -29,11 +29,11 @@ def game():
 
     print("compare these two :")
 
-    print(f"A: {first_person['name']},a {first_person['description']},from {first_person['followers']},")
+    print(f"A: {first_person['name']},a {first_person['description']},from {first_person['country']},")
     
     print(vs)
     
-    print(f"B: {second_person['name']},a {second_person['description']},from {second_person['followers']}")
+    print(f"B: {second_person['name']},a {second_person['description']},from {second_person['country']}")
 
     guess = input("Who has more followers ? Type 'A' or 'B' : ")
     
