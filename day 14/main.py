@@ -14,38 +14,19 @@ def compare_followers(first_person,second_person):
     return first_person
   else:
      return second_person
-# def game():
-#   global SCORE
-#   for dictionary in data:
-#     for key in dictionary:
-#       first_person = dictionary[key[SCORE]]
-#       second_person = dictionary[key[SCORE+1]]
-#       print("compare these two :")
-#       print(f"A: {first_person}")
-#       print(vs)
-#       print(f"B: {second_person}")
-#       guess = input("Who has more followers ? Type 'A' or 'B'(default B) : ")
-#       has_more_followers = compare_followers(first_person,second_person)
-#       if guess == 'A'or guess=='a':
-#         if has_more_followers == first_person:
-#           print("Correct! 😁 😁")
-#           SCORE+=1
-#           game()
-#         else:
-#           print(f"You lost 😥 😥 , Final Score : {SCORE} ")
-#           break
+  
 
 
-# game()
 
 def game():
   global SCORE,END_OF_GAME
 
   while SCORE in range(len(data) - 1) and END_OF_GAME == False:
-    index = random.randint(0,len(data)-1)
-    first_person = data[index]
-    index = random.randint(0,len(data)-1)
-    second_person = data[index + 1]
+    first_person =random.choice(data)
+    second_person = random.choice(data)
+    if (second_person == first_person):
+      second_person = random.choice(data)
+
     print("compare these two :")
 
     print(f"A: {first_person['name']},a {first_person['description']},from {first_person['followers']},")
@@ -69,3 +50,29 @@ def game():
       return 0
 
 game()
+
+
+
+# def game():
+#   global SCORE
+#   for dictionary in data:
+#     for key in dictionary:
+#       first_person = dictionary[key[SCORE]]
+#       second_person = dictionary[key[SCORE+1]]
+#       print("compare these two :")
+#       print(f"A: {first_person}")
+#       print(vs)
+#       print(f"B: {second_person}")
+#       guess = input("Who has more followers ? Type 'A' or 'B'(default B) : ")
+#       has_more_followers = compare_followers(first_person,second_person)
+#       if guess == 'A'or guess=='a':
+#         if has_more_followers == first_person:
+#           print("Correct! 😁 😁")
+#           SCORE+=1
+#           game()
+#         else:
+#           print(f"You lost 😥 😥 , Final Score : {SCORE} ")
+#           break
+
+
+# game()
