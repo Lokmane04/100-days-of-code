@@ -7,9 +7,12 @@ CURRENT_RESOURCES["money"] = MONEY
 print(CURRENT_RESOURCES)
 
 
-def check_resources() -> object:
+def check_resources(resources) -> object:
     """This function checks whether resources are enough to make a drink"""
-
+    for key in resources:
+        if resources[key] <= 0:
+            return False
+    return True
 
 #    resources["water"]
 
@@ -30,12 +33,15 @@ def affordable(total, response):
     return False
 
 
-def make_coffee(coffee_type, resources):
-    for key in resources:
-        resources[key] -= MENU[coffee_type][key]
-        if resources[key] < 0:
+def make_coffee(coffee_type, local_resources):
+    local_resources['money'] -= MENU[coffee_type]['cost']
+    for key in local_resources:
+        if key == 'money':
+            continue
+        local_resources[key] -= MENU[coffee_type]['ingredients'][key]
+        if local_resources[key] < 0:
             print(f"Sorry there is not enough {key} ")
-    return resources
+    return local_resources
 
 
 def game():
@@ -49,7 +55,7 @@ def game():
         elif response == 'report':
             print(resources)
         elif response == 'latte' or response == 'espresso' or response == 'cappuccino':
-            insufficient_resource = check_resources()
+            insufficient_resource = check_resources(CURRENT_RESOURCES)
             if insufficient_resource:
                 print(f"sorry there is not enough {insufficient_resource}")
             else:
@@ -62,6 +68,7 @@ def game():
                 nickles = int(input("how many nickles you want to insert ? : "))
                 pennies = int(input("how many pennies you want to insert ? : "))
                 total = coins_inserted(quarters, dimes, nickles, pennies)
+                print('total : ', total)
                 if not affordable(total, response):
                     print("Sorry that's not enough money. Money refunded.")
                     return 0
