@@ -1,3 +1,6 @@
+import random
+
+
 class QuizBrain:
     def __init__(self, q_list):
         self.question_number = 0
@@ -8,9 +11,9 @@ class QuizBrain:
         return self.question_number < len(self.question_list)
 
     def next_question(self):
-        current_question = self.question_list[self.question_number]
+        current_question = random.choice(self.question_list)
         self.question_number += 1
-        answer = input(f"Q.{self.question_number + 1} : {current_question.text} (True/False)?: ")
+        answer = input(f"Q.{self.question_number} : {current_question.text} (True/False)?: ")
         self.check_answer(answer, current_question)
 
     def check_answer(self, answer, question):
