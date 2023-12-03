@@ -29,7 +29,7 @@ def clear_screen():
 
 
 screen = Screen()
-
+ 
 screen.listen()
 
 screen.onkey(key='w', fun=move_forward)
