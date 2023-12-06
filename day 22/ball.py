@@ -14,5 +14,8 @@ class Ball(Turtle):
     def goto_random_place(self):
         self.goto(x=self.xcor()+self.x_axis, y=self.ycor()+self.y_axis)
 
-    def bounce(self):
+    def bounce_y(self):
         self.y_axis *= -1
+    def bounce_x(self):
+        self.x_axis *= -1
+
