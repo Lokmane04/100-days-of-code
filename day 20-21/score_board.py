@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+
 FONT = ("Courier", 16, "normal")
 SCORE = 0
 
@@ -7,9 +8,9 @@ SCORE = 0
 class ScoreBoard(Turtle):
 
     def __init__(self):
-        self.score = SCORE
-        self.high_score = 0
         super().__init__()
+        self.score = SCORE
+        self.get_high_score()
         self.hideturtle()
         self.penup()
         self.color("white")
@@ -20,9 +21,18 @@ class ScoreBoard(Turtle):
         self.goto(x=0, y=270)
         self.write(f" Score : {self.score}  High score : {self.high_score}", move=True, align="center", font=FONT)
 
+    def set_high_score(self):
+        with open("high_score.txt", mode="w") as file:
+            file.write(f"{self.high_score}")
+
+    def get_high_score(self):
+        with open("high_score.txt", mode="r") as file:
+            self.high_score = int(file.read())
+
     def reset_game(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            self.set_high_score()
         self.score = 0
         self.update_text()
 
