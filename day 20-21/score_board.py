@@ -9,6 +9,7 @@ class ScoreBoard(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.high_score = None
         self.score = SCORE
         self.get_high_score()
         self.hideturtle()
