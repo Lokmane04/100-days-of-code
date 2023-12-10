@@ -1,27 +1,33 @@
 from tkinter import *
 
 
-def clicked():
-    text.config(text=f"{input_field.get()}")
+def convert_miles_to_km():
+    km_result_label.config(text=f"{int(miles_input_field.get()) * (16 / 10)}")
 
 
 window = Tk()
 
 window.minsize(width=500, height=300)
+window.config(padx=50, pady=50)
+title = window.title("Mile to km converter")
 
-title = window.title("First GUI program")
+is_equal_to = Label(text='is equal to')
+is_equal_to.grid(column=0, row=1)
 
-text = Label(text='Some text .')
-text.grid(column=0, row=0)
+miles_input_field = Entry(width=15)
 
-input_field = Entry(width=15)
+miles_input_field.grid(column=1, row=0)
 
-input_field.grid(column=3,row=0)
+miles_text = Label(text='miles')
+miles_text.grid(column=2, row=0)
 
-button = Button(text="Click me", command=clicked)
-button.grid(column=2,row=1)
+km_result_label = Label(text="0")
+km_result_label.grid(column=1, row=1)
 
-new_button = Button(text="new button", command=clicked)
-new_button.grid(column=4,row=4)
 
+km_text = Label(text='km')
+km_text.grid(column=2, row=1)
+
+button = Button(text="Calculate", command=convert_miles_to_km)
+button.grid(column=1, row=2)
 window.mainloop()
