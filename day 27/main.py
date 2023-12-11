@@ -2,12 +2,11 @@ from tkinter import *
 
 
 def convert_miles_to_km():
-    km_result_label.config(text=f"{int(miles_input_field.get()) * (16 / 10)}")
+    km_result_label.config(text=f"{round(int(miles_input_field.get()) * (1609 / 1000))}")
 
 
 window = Tk()
 
-window.minsize(width=500, height=300)
 window.config(padx=50, pady=50)
 title = window.title("Mile to km converter")
 
