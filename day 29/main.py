@@ -1,23 +1,28 @@
 from tkinter import *
 from tkinter import messagebox
+from password_generator import random_password_generator
+
 window = Tk()
 window.title("Password manager")
 window.config(pady=50, padx=50)
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def generate_password():
+    PASSWORD = random_password_generator()
+    password_entry.insert(0, PASSWORD)
+
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save_password():
-
-
     if website_entry.get() and email_entry.get() and password_entry.get():
 
-        save = messagebox.askokcancel(title=website_entry.get(), message=f"These are the details entered :\nemail : {email_entry.get()}\npassword: {password_entry.get()}\nis it ok to save ? ")
+        save = messagebox.askokcancel(title=website_entry.get(),
+                                      message=f"These are the details entered :\nemail : {email_entry.get()}\npassword: {password_entry.get()}\nis it ok to save ? ")
         if save:
             with (open("passwords.txt", mode='a') as file):
-                file_text = f"\n\nwebsite : {website_entry.get()}\nemail : {email_entry.get()}\npassword: {password_entry.get()}\n\n\n________________"
+                file_text = f"\nwebsite : {website_entry.get()}\nemail : {email_entry.get()}\npassword: {password_entry.get()}\n________________"
                 file.write(file_text)
                 website_entry.delete(0, END)
                 email_entry.delete(0, END)
@@ -60,7 +65,7 @@ password_entry.grid(column=1, row=3, columnspan=2)
 
 # Buttons
 
-generate_button = Button(text="Generate password", width=15)
+generate_button = Button(text="Generate password", width=15, command=generate_password)
 generate_button.grid(column=2, row=4, columnspan=1)
 
 add_button = Button(text="Add to library", command=save_password)
