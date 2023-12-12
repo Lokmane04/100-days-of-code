@@ -1,6 +1,6 @@
 # Password Generator Project
 
-import random
+from random import shuffle, randint, choice
 
 
 def random_password_generator():
@@ -12,25 +12,16 @@ def random_password_generator():
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-    nr_letters = random.randint(8, 10)
-    nr_symbols = random.randint(2, 4)
-    nr_numbers = random.randint(2, 4)
+    password_letters = [choice(letters) for char in range(randint(8, 10))]
 
-    password_list = []
+    password_symbols = [choice(symbols) for char in range(randint(2, 4))]
 
-    for char in range(nr_letters):
-        password_list.append(random.choice(letters))
+    password_numbers = [choice(numbers) for char in range(randint(2, 4))]
 
-    for char in range(nr_symbols):
-        password_list += random.choice(symbols)
+    password = password_numbers + password_symbols + password_letters
+    shuffle(password)
 
-    for char in range(nr_numbers):
-        password_list += random.choice(numbers)
+    return ''.join(password)
 
-    random.shuffle(password_list)
 
-    password = ""
-    for char in password_list:
-        password += char
-
-    return password
+print(random_password_generator())

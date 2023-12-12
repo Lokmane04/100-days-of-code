@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from password_generator import random_password_generator
+import pyperclip
 
 window = Tk()
 window.title("Password manager")
@@ -9,8 +10,10 @@ window.config(pady=50, padx=50)
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
+    password_entry.delete(0, END)  # This will clear the entry
     PASSWORD = random_password_generator()
     password_entry.insert(0, PASSWORD)
+    pyperclip.copy(PASSWORD)
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
