@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import messagebox
 window = Tk()
 window.title("Password manager")
 window.config(pady=50, padx=50)
@@ -10,12 +10,20 @@ window.config(pady=50, padx=50)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save_password():
-    with (open("passwords.txt", mode='a') as file):
-        file_text = f"\n\nwebsite : {website_entry.get()}\nusername/email : {username_entry.get()}\npassword: {password_entry.get()}\n\n\n________________"
-        file.write(file_text)
-        website_entry.delete(0, END)
-        username_entry.delete(0, END)
-        password_entry.delete(0, END)
+
+
+    if website_entry.get() and email_entry.get() and password_entry.get():
+
+        save = messagebox.askokcancel(title=website_entry.get(), message=f"These are the details entered :\nemail : {email_entry.get()}\npassword: {password_entry.get()}\nis it ok to save ? ")
+        if save:
+            with (open("passwords.txt", mode='a') as file):
+                file_text = f"\n\nwebsite : {website_entry.get()}\nemail : {email_entry.get()}\npassword: {password_entry.get()}\n\n\n________________"
+                file.write(file_text)
+                website_entry.delete(0, END)
+                email_entry.delete(0, END)
+                password_entry.delete(0, END)
+    else:
+        messagebox.showinfo(title="Oops", message="Please fill up all the fields :)")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -43,9 +51,9 @@ website_entry = Entry(width=55)
 website_entry.grid(column=1, row=1, columnspan=2)
 website_entry.focus()
 
-username_entry = Entry(width=55)
-username_entry.grid(column=1, row=2, columnspan=2)
-username_entry.insert(0, "red@gmail.com")
+email_entry = Entry(width=55)
+email_entry.grid(column=1, row=2, columnspan=2)
+email_entry.insert(0, "red@gmail.com")
 
 password_entry = Entry(width=55)
 password_entry.grid(column=1, row=3, columnspan=2)
