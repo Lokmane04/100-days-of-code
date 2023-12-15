@@ -1,3 +1,4 @@
+import json
 from tkinter import *
 from tkinter import messagebox
 from password_generator import random_password_generator
@@ -19,16 +20,31 @@ def generate_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save_password():
-    if website_entry.get() and email_entry.get() and password_entry.get():
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
 
-        save = messagebox.askokcancel(title=website_entry.get(),
-                                      message=f"These are the details entered :\nemail : {email_entry.get()}\npassword: {password_entry.get()}\nis it ok to save ? ")
+    if website and email and password:
+
+        save = messagebox.askokcancel(title=website,
+                                      message=f"These are the details entered :\nemail : {email}\npassword: {password}\nis it ok to save ? ")
+
         if save:
-            with (open("passwords.txt", mode='a') as file):
-                file_text = f"\nwebsite : {website_entry.get()}\nemail : {email_entry.get()}\npassword: {password_entry.get()}\n________________"
-                file.write(file_text)
+            json_data = {
+                website: {
+                    "email": email,
+                    "password": password
+                }
+            }
+            with open("passwords.json", mode='r') as data_file:
+                if data_file:
+                    data = json.load(data_file)
+                data.update(json_data)
+                print(data)
+            with open("passwords.json", mode='w') as data_file:
+                json.dump(data, data_file, indent=4)
+
                 website_entry.delete(0, END)
-                email_entry.delete(0, END)
                 password_entry.delete(0, END)
     else:
         messagebox.showinfo(title="Oops", message="Please fill up all the fields :)")
