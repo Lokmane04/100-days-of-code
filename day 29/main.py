@@ -23,39 +23,58 @@ def save_password():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
-
+    json_data = {
+        website: {  # if website is a variable
+            "email": email,
+            "password": password
+        }
+    }
     if website and email and password:
 
         save = messagebox.askokcancel(title=website,
                                       message=f"These are the details entered :\nemail : {email}\npassword: {password}\nis it ok to save ? ")
 
         if save:
-            json_data = {
-                website: {
-                    "email": email,
-                    "password": password
-                }
-            }
+
             try:
                 with open("passwords.json", mode='r') as data_file:
                     data = json.load(data_file)
-            except FileExistsError:
-                with open("passwords.json", mode='w') as data_file:
+            except FileNotFoundError:
+                with open("passwords.json", "w") as data_file:
                     json.dump(json_data, data_file, indent=4)
             else:
+                # Updating old data with new data
                 data.update(json_data)
-                with open("passwords.json", mode='w') as data_file:
+
+                with open("passwords.json", "w") as data_file:
+                    # Saving updated data
                     json.dump(data, data_file, indent=4)
             finally:
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
+
+        else:
+            messagebox.showinfo(title="Oops", message="Please fill up all the fields :)")
+
+
+# ---------------------------- search for password ------------------------------- #
+def find_password():
+    website = website_entry.get()
+    try:
+        with open("passwords.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No Data File Found.")
     else:
-        messagebox.showinfo(title="Oops", message="Please fill up all the fields :)")
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
+        else:
+            messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
-
-
 canvas = Canvas(width=200, height=200)
 
 mypass_image = PhotoImage(file="logo.png")
@@ -87,7 +106,7 @@ password_entry.grid(column=1, row=3)
 
 # Buttons
 
-search_button = Button(text="Search", width=15)
+search_button = Button(text="Search", width=15,command=find_password)
 search_button.grid(row=1, column=2)
 
 generate_button = Button(text="Generate password", width=15, command=generate_password)
