@@ -36,14 +36,17 @@ def save_password():
                     "password": password
                 }
             }
-            with open("passwords.json", mode='r') as data_file:
-                if data_file:
+            try:
+                with open("passwords.json", mode='r') as data_file:
                     data = json.load(data_file)
+            except FileExistsError:
+                with open("passwords.json", mode='w') as data_file:
+                    json.dump(json_data, data_file, indent=4)
+            else:
                 data.update(json_data)
-                print(data)
-            with open("passwords.json", mode='w') as data_file:
-                json.dump(data, data_file, indent=4)
-
+                with open("passwords.json", mode='w') as data_file:
+                    json.dump(data, data_file, indent=4)
+            finally:
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
     else:
@@ -71,23 +74,26 @@ password_label = Label(text="Password : ")
 password_label.grid(column=0, row=3)
 
 # Entries
-website_entry = Entry(width=55)
-website_entry.grid(column=1, row=1, columnspan=2)
+website_entry = Entry(width=40)
+website_entry.grid(column=1, row=1)
 website_entry.focus()
 
-email_entry = Entry(width=55)
-email_entry.grid(column=1, row=2, columnspan=2)
+email_entry = Entry(width=40)
+email_entry.grid(column=1, row=2)
 email_entry.insert(0, "red@gmail.com")
 
-password_entry = Entry(width=55)
-password_entry.grid(column=1, row=3, columnspan=2)
+password_entry = Entry(width=40)
+password_entry.grid(column=1, row=3)
 
 # Buttons
 
-generate_button = Button(text="Generate password", width=15, command=generate_password)
-generate_button.grid(column=2, row=4, columnspan=1)
+search_button = Button(text="Search", width=15)
+search_button.grid(row=1, column=2)
 
-add_button = Button(text="Add to library", command=save_password)
-add_button.grid(column=1, row=4, columnspan=1)
+generate_button = Button(text="Generate password", width=15, command=generate_password)
+generate_button.grid(column=2, row=3, columnspan=1)
+
+add_button = Button(text="Add to library", command=save_password, width=36)
+add_button.grid(column=1, row=4)
 
 window.mainloop()
