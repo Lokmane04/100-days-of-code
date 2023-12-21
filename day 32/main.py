@@ -29,7 +29,7 @@ if today_tuple in birthdays_dict:
         connection.login(MY_EMAIL, PASSWORD)
         connection.sendmail(from_addr=MY_EMAIL, to_addrs=MY_EMAIL, msg=f"Subject:Birthday motivation\n\n{letter}")
 
-# you can run the script on the cloud so you don't have to run it manually
+# you can run the script on the cloud, so you don't have to run it manually
 
 # you can go to pythonanywhere.com  :)
 
