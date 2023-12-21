@@ -1,9 +1,20 @@
 from tkinter import *
+import requests
+
+
+# fetching the quote
+
+def fetch_quote():
+    response = requests.get(url="https://api.kanye.rest")
+
+    data = response.json()
+    quote = data["quote"]
+    return quote
 
 
 def get_quote():
-    pass
-    # Write your code here.
+    quote = fetch_quote()
+    canvas.itemconfig(quote_text, text=f"{quote}")
 
 
 window = Tk()
