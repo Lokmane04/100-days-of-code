@@ -39,3 +39,26 @@ today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
 
 print(now_time)
+
+GOOGLE_SHEET_NAME = "workout"
+sheet_endpoint = "https://api.sheety.co/b35a68f81a770a7ae5c6269e80e18086/myWorkouts/workouts"
+
+for exercise in result["exercises"]:
+    sheet_inputs = {
+        GOOGLE_SHEET_NAME: {
+            "date": today_date,
+            "time": now_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"]
+        }
+    }
+    bearer_headers = {
+        "Authorization": "Bearer bismillah"
+    }
+    sheet_response = requests.post(
+        sheet_endpoint,
+        json=sheet_inputs,
+        headers=bearer_headers
+    )
+    print(f"Sheety Response: \n {sheet_response.text}")
