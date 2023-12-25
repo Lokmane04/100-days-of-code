@@ -18,7 +18,7 @@ class FlightSearch:
 
     def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
         headers = {"apikey": TEQUILA_API_KEY}
-        qeury = {
+        query = {
             "fly_from": origin_city_code,
             "fly_to": destination_city_code,
             "date_from": from_time.strftime("%d/%m/%Y"),
@@ -34,7 +34,7 @@ class FlightSearch:
         response = requests.get(
             url=f"{TEQUILA_ENDPOINT}/v2/search",
             headers=headers,
-            params=qeury,
+            params=query,
         )
 
         try:
