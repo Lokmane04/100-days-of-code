@@ -31,10 +31,6 @@ This repository contains the projects and exercises completed during the "100 Da
 
 Each folder corresponds to a day of the challenge and contains the projects and exercises completed on that day.
 
-## License
-
-This project is licensed under the MIT License.
-
 ## Acknowledgments
 
 Special thanks to the instructor of the [100 days of code course](https://www.udemy.com/course/100-days-of-code/) "Angela Yu" for her comprehensive and engaging lessons.
